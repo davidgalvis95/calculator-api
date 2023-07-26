@@ -83,6 +83,13 @@ public class AuthenticationService {
 
     @Transactional
     public UserDto registerUser(final SignupRequest signUpRequest) {
+        final boolean requestHasAdminRole = signUpRequest.getRoles()
+                .stream()
+                .anyMatch(role -> role.equals(RoleType.ADMIN));
+        if(requestHasAdminRole) {
+            throw new BadCredentialsException("Users cannot be created as ADMIN using this endpoint, " +
+                    "create the user as USER and ask an already admin user to mark that user as ADMIN");
+        }
         if (userRepository.existsUserByEmail(signUpRequest.getEmail())) {
             throw new BadCredentialsException("User already exists");
         }

@@ -6,6 +6,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD:password
-      - POSTGRES_DB:calculator_db
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=calculator_db
 

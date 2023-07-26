@@ -1,0 +1,9 @@
+calculator:
+  app:
+    jwt-expiration-ms: 86400000
+    jwt-secret: super-secret
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/calculator_db
+server:
+  port: 8080
