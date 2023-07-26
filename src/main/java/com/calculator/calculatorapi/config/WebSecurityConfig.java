@@ -48,7 +48,6 @@ public class WebSecurityConfig {
                 "http://localhost:3000",
                 "http://calculator-app-ui.s3-website-us-east-1.amazonaws.com"
         ));
-//        configuration.setAllowedMethods(Arrays.asList("GET","POST","PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"));
         configuration.setAllowCredentials(true);
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
