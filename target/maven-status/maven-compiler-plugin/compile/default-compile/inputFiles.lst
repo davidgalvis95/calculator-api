@@ -14,7 +14,6 @@
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/models/User.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/service/record/RecordService.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/service/calculation/StringOperationService.java
-/Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/config/WebConfig.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/config/JwtAuthFilter.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/operations/StringOperationResult.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/record/RecordListResponse.java
@@ -25,7 +24,6 @@
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/operations/OperationRequest.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/operations/OperationResult.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/user/UserDto.java
-/Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/config/GlobalCalculatorFilter.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/config/UserDetailsInfo.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/service/calculation/NumberOperationsService.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/operations/NumberOperationValues.java
@@ -51,5 +49,4 @@
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/operations/NumberOperationRequest.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/dto/authentication/JwtResponse.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/controller/UserController.java
-/Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/config/CorsConfig.java
 /Users/davidgalvis/Desktop/calculator-api/src/main/java/com/calculator/calculatorapi/controller/AppErrorHandler.java
