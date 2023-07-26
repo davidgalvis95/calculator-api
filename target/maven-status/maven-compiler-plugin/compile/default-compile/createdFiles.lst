@@ -37,6 +37,7 @@ com/calculator/calculatorapi/service/calculation/NumberOperationsService.class
 com/calculator/calculatorapi/dto/exception/BadJwtException.class
 com/calculator/calculatorapi/util/Utils.class
 com/calculator/calculatorapi/models/Record.class
+com/calculator/calculatorapi/config/CorsConfig$1.class
 com/calculator/calculatorapi/dto/authentication/JwtResponse.class
 com/calculator/calculatorapi/dto/operations/NumberOperationResult$NumberOperationResultBuilder.class
 com/calculator/calculatorapi/service/calculation/StringOperationService.class
@@ -55,6 +56,7 @@ com/calculator/calculatorapi/dto/operations/OperationResult.class
 com/calculator/calculatorapi/service/calculation/CalculationServiceProxy.class
 com/calculator/calculatorapi/repository/RecordRepository.class
 com/calculator/calculatorapi/models/OperationType.class
+com/calculator/calculatorapi/config/CorsConfig.class
 com/calculator/calculatorapi/dto/authentication/JwtResponse$JwtResponseBuilder.class
 com/calculator/calculatorapi/config/JwtAuthFilter.class
 com/calculator/calculatorapi/config/UserDetailsInfo.class

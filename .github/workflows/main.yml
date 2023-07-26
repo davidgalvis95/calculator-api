@@ -44,6 +44,6 @@ jobs:
           use_existing_version_if_available: true
           application_name: caculator-app
           environment_name: Caculator-app-env
-          version_label: ${{ github.event.inputs.deployTagVersion }}
+          version_label: ${{ github.SHA }}
           region: us-east-1
           deployment_package: calculator-api-0.0.1-SNAPSHOT.jar
