@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "63a0e86b-dec5-461f-befa-80b0bbedb9fc",
+		"name": "Calculator API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19295993"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@yopmail.com\",\n    \"password\": \"password\",\n    \"status\": \"ACTIVE\",\n    \"roles\": [\"USER\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Process calculation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNjg4MzMyMjQ1LCJleHAiOjE2ODgzMzQwNDV9.gqKEp4OcQjnjnnFfGga9s1aST_WWjjEElSrTUQz1dqY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operands\": {\n        \"a\": 1,\n        \"b\": 5\n    },\n    \"operationType\": \"ADDITION\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/calculate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Singin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@yopmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get records",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/records?pageNumber=1&pageSize=10&operationType=ADDITION",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"records"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "operationType",
+									"value": "ADDITION"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0N0BleGFtcGxlLmNvbSIsImlhdCI6MTY4ODcwNzU2OSwiZXhwIjoxNjg4NzA5MzY5fQ.-5Qy6BnZuSVoy5tQi9ntQUNp_85GpFJ06AWz2G4y94Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/all?pageNumber=1&pageSize=10&userStatus=ACTIVE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "userStatus",
+									"value": "ACTIVE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/deactivate/173d51ff-0486-46cd-a451-b27b52638824",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"deactivate",
+								"173d51ff-0486-46cd-a451-b27b52638824"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/activate/173d51ff-0486-46cd-a451-b27b52638824",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"activate",
+								"173d51ff-0486-46cd-a451-b27b52638824"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upgrade user to ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/upgrade/173d51ff-0486-46cd-a451-b27b52638824",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"upgrade",
+								"173d51ff-0486-46cd-a451-b27b52638824"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/user/balance-funding",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"balance-funding"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prod",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@yopmail.com\",\n    \"password\": \"password\",\n    \"status\": \"ACTIVE\",\n    \"roles\": [\"USER\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Process calculation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkBleGFtcGxlLmNvbSIsImlhdCI6MTY4ODQxOTk3OCwiZXhwIjoxNjg4NDIxNzc4fQ.ysrptyheC-FvIzyIAPYsROljd5RCoKhS0_wKPz5qe2E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operands\": {\n        \"a\": 8,\n        \"b\": 4\n    },\n    \"operationType\": \"SQUARE_ROOT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/calculate",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"calculate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Singin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@yopmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/auth/signin",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get records",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/records?pageNumber=1&pageSize=10&operationType=ADDITION",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"records"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "operationType",
+									"value": "ADDITION"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0N0BleGFtcGxlLmNvbSIsImlhdCI6MTY4ODcwNzU2OSwiZXhwIjoxNjg4NzA5MzY5fQ.-5Qy6BnZuSVoy5tQi9ntQUNp_85GpFJ06AWz2G4y94Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/user/all?pageNumber=1&pageSize=10&userStatus=ACTIVE",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"all"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "userStatus",
+									"value": "ACTIVE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/user/deactivate/173d51ff-0486-46cd-a451-b27b52638824",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"deactivate",
+								"173d51ff-0486-46cd-a451-b27b52638824"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/user/activate/173d51ff-0486-46cd-a451-b27b52638824",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"activate",
+								"173d51ff-0486-46cd-a451-b27b52638824"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upgrade user to ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/user/upgrade/173d51ff-0486-46cd-a451-b27b52638824",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"upgrade",
+								"173d51ff-0486-46cd-a451-b27b52638824"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add user balance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTBAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODg3MDY3MTUsImV4cCI6MTY4ODcwODUxNX0.Y6VYSX8SKc9qWRfnnlcAXznNsqq3USpU0R8Xb5JPgCA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com/api/v1/user/balance-funding",
+							"protocol": "http",
+							"host": [
+								"caculator-app-env",
+								"eba-zjmug9a6",
+								"us-east-1",
+								"elasticbeanstalk",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"balance-funding"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

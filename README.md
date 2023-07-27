@@ -16,15 +16,27 @@ It is also important to mention that the app is currently being deployed to the 
 
 ## Calculator api - How to use it
 **Live version:**
-* The live public endpoint for this api can be found [here](http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com).
-* There is already a user created; **_username_**: `admin@yopmail.com`, **_password_**: `password`
-* There is a postman collection that can be used for the different endpoints.
+* The live public endpoint for this api is http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com.
+* In order to make use of the endpoints of the api, the user must be registered or the default admin user can be used instead. If you prefer a new user, create one using the `/api/v1/auth/signup` endpoint to create one user, otherwise use the `/api/v1/auth/signin` endpoint to login an already created user, either your custom user or the default one.
+* A user is created by using the `/api/v1/auth/signin` endpoint with the USER role permissions. If you want a user with ADMIN permissions out of the default one, a user with ADMIN permissions already must grant permissions by using the `/api/v1/user/upgrade/{userId}` endpoint. 
+* There is already a user created; **_username_**: `admin@yopmail.com`, **_password_**: `password`, this user has ADMIN role permissions.
+* The Following endpoints require ADMIN role: Upgrade user to ADMIN, Activate user, Deactivate user, Get users.
+* The following endpoints require USER role: Process calculation, Add user balance, Get records.
+* The following endpoint don't require any permission: Sign in, Sign up, Log out.
+* The previously mentioned endpoints can be found in a postman collection named `Calculator API.postman_collection.json` and shared in the root folder.
 
 **Local Environment:**
 * Clone the following repo https://github.com/davidgalvis95/calculator-api
 * Run `mvn clean install`
 * In the terminal go to the root folder of the repository and run `docker-compose up` to start the database.
 * Run the following command `mvn spring-boot:run -Dspring-boot.run.profiles=local` to run the api.
+* * In order to make use of the endpoints of the api, the user must be registered or the default admin user can be used instead. If you prefer a new user, create one using the `/api/v1/auth/signup` endpoint to create one user, otherwise use the `/api/v1/auth/signin` endpoint to login an already created user, either your custom user or the default one.
+* A user is created by using the `/api/v1/auth/signin` endpoint with the USER role permissions. If you want a user with ADMIN permissions out of the default one, a user with ADMIN permissions already must grant permissions by using the `/api/v1/user/upgrade/{userId}` endpoint.
+* There is already a user created; **_username_**: `admin@yopmail.com`, **_password_**: `password`, this user has ADMIN role permissions.
+* The Following endpoints require ADMIN role: Upgrade user to ADMIN, Activate user, Deactivate user, Get users.
+* The following endpoints require USER role: Process calculation, Add user balance, Get records.
+* The following endpoint don't require any permission: Sign in, Sign up, Log out.
+* The previously mentioned endpoints can be found in a postman collection named `Calculator API.postman_collection.json` and shared in the root folder.
 
 With these simple steps you are all set up.
 
