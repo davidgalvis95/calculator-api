@@ -16,6 +16,7 @@ public class UserDetailsInfo implements UserDetails {
     private UUID id;
     private String username;
     private String password;
+    private Integer balance;
     private List<GrantedAuthority> authorities;
     private static final String ROLE_PREFIX = "ROLE_";
 
@@ -27,6 +28,7 @@ public class UserDetailsInfo implements UserDetails {
                 .map(r -> ROLE_PREFIX + r.getType().name())
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
+        this.balance = user.getBalance();
     }
 
     @Override
@@ -46,6 +48,10 @@ public class UserDetailsInfo implements UserDetails {
     @Override
     public String getUsername() {
         return username;
+    }
+
+    public Integer getBalance() {
+        return balance;
     }
 
     @Override

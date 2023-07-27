@@ -11,7 +11,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @Value
-public class JwtResponse {
+public class SignInResponse {
 
     @NotBlank
     String accessToken;
@@ -24,6 +24,9 @@ public class JwtResponse {
 
     @NotBlank
     String email;
+
+    @NotBlank
+    Integer balance;
 
     @NotBlank
     Set<String> roles;

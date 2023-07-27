@@ -1,7 +1,7 @@
 package com.calculator.calculatorapi.controller;
 
 import com.calculator.calculatorapi.dto.StandardResponseDto;
-import com.calculator.calculatorapi.dto.authentication.JwtResponse;
+import com.calculator.calculatorapi.dto.authentication.SignInResponse;
 import com.calculator.calculatorapi.dto.authentication.LoginRequest;
 import com.calculator.calculatorapi.dto.authentication.SignupRequest;
 import com.calculator.calculatorapi.dto.user.UserDto;
@@ -44,21 +44,21 @@ public class AuthControllerTest {
     public void testAuthenticateUser() {
         // Given
         final LoginRequest loginRequest = new LoginRequest(faker.internet().emailAddress(), faker.internet().password());
-        final JwtResponse jwtResponse = JwtResponse.builder()
+        final SignInResponse signInResponse = SignInResponse.builder()
                 .accessToken("jhfvduv7eavfadsvfdvflisav8qwegt8r4brfv")
                 .id(UUID.randomUUID())
                 .email(loginRequest.getEmail())
                 .roles(Set.of(RoleType.USER.name()))
                 .tokenType("Bearer")
                 .build();
-        final StandardResponseDto<JwtResponse> expectedResponseDto = new StandardResponseDto<>(
-                jwtResponse,
+        final StandardResponseDto<SignInResponse> expectedResponseDto = new StandardResponseDto<>(
+                signInResponse,
                 "User authenticated successfully",
                 null
         );
-        when(authenticationService.authenticateUser(loginRequest)).thenReturn(jwtResponse);
+        when(authenticationService.authenticateUser(loginRequest)).thenReturn(signInResponse);
         // When
-        final ResponseEntity<StandardResponseDto<JwtResponse>> response = authController.authenticateUser(loginRequest);
+        final ResponseEntity<StandardResponseDto<SignInResponse>> response = authController.authenticateUser(loginRequest);
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedResponseDto, response.getBody());

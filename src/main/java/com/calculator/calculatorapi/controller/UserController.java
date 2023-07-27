@@ -1,6 +1,7 @@
 package com.calculator.calculatorapi.controller;
 
 import com.calculator.calculatorapi.dto.StandardResponseDto;
+import com.calculator.calculatorapi.dto.user.UserBalanceResponse;
 import com.calculator.calculatorapi.dto.user.UserListResponse;
 import com.calculator.calculatorapi.models.UserStatus;
 import com.calculator.calculatorapi.service.user.UserService;
@@ -27,10 +28,10 @@ public class UserController {
 
     @PostMapping("/balance-funding")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<StandardResponseDto<?>> addUserBalance() {
+    public ResponseEntity<StandardResponseDto<UserBalanceResponse>> addUserBalance() {
         final int newBalance = userService.addBalanceToUser();
-        final StandardResponseDto<?> standardResponseDto = new StandardResponseDto<>(
-                null,
+        final StandardResponseDto<UserBalanceResponse> standardResponseDto = new StandardResponseDto<>(
+                UserBalanceResponse.builder().newBalance(newBalance).build(),
                 "Balance amount of " + UserService.USER_BALANCE + " added to the user, new balance: " + newBalance,
                 null
         );

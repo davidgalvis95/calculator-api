@@ -1,6 +1,7 @@
 package com.calculator.calculatorapi.controller;
 
 import com.calculator.calculatorapi.dto.StandardResponseDto;
+import com.calculator.calculatorapi.dto.user.UserBalanceResponse;
 import com.calculator.calculatorapi.dto.user.UserDto;
 import com.calculator.calculatorapi.dto.user.UserListResponse;
 import com.calculator.calculatorapi.models.RoleType;
@@ -50,13 +51,13 @@ public class UserControllerTest {
         // Given
         final int newBalance = 100;
         final StandardResponseDto<?> expectedResponseDto = new StandardResponseDto<>(
-                null,
+                UserBalanceResponse.builder().newBalance(100).build(),
                 "Balance amount of 100 added to the user, new balance: 100",
                 null
         );
         when(userService.addBalanceToUser()).thenReturn(newBalance);
         // When
-        final ResponseEntity<StandardResponseDto<?>> response = userController.addUserBalance();
+        final ResponseEntity<StandardResponseDto<UserBalanceResponse>> response = userController.addUserBalance();
         // Then
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedResponseDto, response.getBody());

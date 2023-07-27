@@ -1,7 +1,7 @@
 package com.calculator.calculatorapi.controller;
 
 import com.calculator.calculatorapi.dto.StandardResponseDto;
-import com.calculator.calculatorapi.dto.authentication.JwtResponse;
+import com.calculator.calculatorapi.dto.authentication.SignInResponse;
 import com.calculator.calculatorapi.dto.authentication.LoginRequest;
 import com.calculator.calculatorapi.dto.authentication.SignupRequest;
 import com.calculator.calculatorapi.dto.user.UserDto;
@@ -25,10 +25,10 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<StandardResponseDto<JwtResponse>> authenticateUser(
+    public ResponseEntity<StandardResponseDto<SignInResponse>> authenticateUser(
             @Valid @RequestBody final LoginRequest loginRequest
     ) {
-        final StandardResponseDto<JwtResponse> standardResponseDto = new StandardResponseDto<>(
+        final StandardResponseDto<SignInResponse> standardResponseDto = new StandardResponseDto<>(
                 authenticationService.authenticateUser(loginRequest),
                 "User authenticated successfully",
                 null

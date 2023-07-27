@@ -1,7 +1,7 @@
 package com.calculator.calculatorapi.service.security;
 
 import com.calculator.calculatorapi.config.UserDetailsInfo;
-import com.calculator.calculatorapi.dto.authentication.JwtResponse;
+import com.calculator.calculatorapi.dto.authentication.SignInResponse;
 import com.calculator.calculatorapi.dto.authentication.LoginRequest;
 import com.calculator.calculatorapi.dto.authentication.SignupRequest;
 import com.calculator.calculatorapi.dto.user.UserDto;
@@ -74,7 +74,7 @@ public class AuthenticationServiceTest {
 
         when(jwtService.generateToken(email)).thenReturn("jwt-token");
 
-        JwtResponse response = authenticationService.authenticateUser(loginRequest);
+        SignInResponse response = authenticationService.authenticateUser(loginRequest);
 
         assertEquals("jwt-token", response.getAccessToken());
         assertEquals("Bearer", response.getTokenType());
