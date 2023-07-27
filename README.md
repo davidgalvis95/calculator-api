@@ -15,12 +15,12 @@ The database model can be seen in the following diagram:
 It is also important to mention that the app is currently being deployed to the cloud using the github actions pipelines.
 
 ## Calculator api - How to use it
-###Live version:
+**Live version:**
 * The live public endpoint for this api can be found [here](http://caculator-app-env.eba-zjmug9a6.us-east-1.elasticbeanstalk.com).
 * There is already a user created; **_username_**: `admin@yopmail.com`, **_password_**: `password`
 * There is a postman collection that can be used for the different endpoints.
 
-###Local Environment:
+**Local Environment:**
 * Clone the following repo https://github.com/davidgalvis95/calculator-api
 * Run `mvn clean install`
 * In the terminal go to the root folder of the repository and run `docker-compose up` to start the database.
