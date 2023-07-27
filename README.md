@@ -12,6 +12,7 @@ As it can be seen the application is deployed now in AWS, where the calculator u
 The database model can be seen in the following diagram:
 ![Diagram](src/main/resources/images/model_design.png)
 
+It is also important to mention that the app is currently being deployed to the cloud using the github actions pipelines.
 
 ## Calculator api - How to use it
 ###Live version:
